@@ -5,7 +5,7 @@ import Currency from './Currency';
 
 import './style.scss';
 
-const Currencies = ({ currencies }) => {
+const Currencies = ({ currencies, onClickButton }) => {
   console.log('Currencies', currencies);
 
   const currenciesList = currencies.map((currency) => {
@@ -13,7 +13,7 @@ const Currencies = ({ currencies }) => {
     const currencyName = currency.name;
     // on retourne un composant Currency pour chaque élément du nouveau tableau
     // attetion, il faut bien penser à rajouter la prop key pour chaque élément de cet tableau
-    return <Currency key={currency.name} text={currencyName} />;
+    return <Currency key={currency.name} text={currencyName} onClickButton={onClickButton} />;
   });
 
   // const currenciesList = currencies.map((currency) => <Currency text={currency.name} />);
@@ -31,6 +31,7 @@ const Currencies = ({ currencies }) => {
 Currencies.propTypes = {
   // currencies: PropTypes.array.isRequired,
   // on peu tpréciser ce qu'il y a dans le tableau
+  onClickButton: PropTypes.func.isRequired,
   currencies: PropTypes.arrayOf(
     // on vient décrire ce qu'il y a comme propriétés dans les objets du tableau
     PropTypes.shape({

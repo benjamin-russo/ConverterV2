@@ -52,6 +52,10 @@ class Converter extends React.Component {
     });
   }
 
+  currenciesClick = () => {
+    console.log('je clique pour changer la monnaie a convertir');
+  }
+
   makeConversion = () => {
     const { baseAmount, currency } = this.state;
 
@@ -101,7 +105,7 @@ class Converter extends React.Component {
           pour utiliser une valeur stockée dans le state, on utilise l'écriture pointée
          */}
         {open && (
-          <Currencies currencies={currenciesData} />
+          <Currencies currencies={currenciesData} onClickButton={this.currenciesClick} />
         )}
         <Amount
           value={convertedAmount}

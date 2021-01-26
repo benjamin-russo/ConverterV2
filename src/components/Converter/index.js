@@ -52,8 +52,12 @@ class Converter extends React.Component {
     });
   }
 
-  currenciesClick = () => {
-    console.log('je clique pour changer la monnaie a convertir');
+  currenciesClick = (newCurrency) => {
+    // console.log('je clique pour changer la monnaie a convertir');
+    console.log(newCurrency);
+    this.setState({
+      currency: newCurrency,
+    });
   }
 
   makeConversion = () => {
